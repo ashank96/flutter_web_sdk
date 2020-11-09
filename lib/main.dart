@@ -3,16 +3,16 @@ library t;
 
 import 'dart:async';
 import 'dart:html';
-import 'dart:js_util';
 import 'dart:js' as js;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:js/js.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const String flutterWebTest = 'Flutter says hello';
 
-Future main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   js.context['testFuncFromNative'] = () {
     return flutterWebTest;
@@ -24,6 +24,7 @@ class SignUpApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(textTheme: GoogleFonts.muliTextTheme(),),
       routes: {
         '/': (context) => SignUpScreen(),
         '/welcome': (context) => WelcomeScreen(),
